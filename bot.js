@@ -14,12 +14,14 @@ const client = new Client({
 const handleInteraction = async (interaction) => {
   if (!interaction.isCommand()) return;
 
-  if (interaction.commandName === "remove") {
-    await del.execute(interaction);
-  }
+  switch (interaction.commandName) {
+    case "remove":
+      await del.execute(interaction);
+      break;
 
-  if (interaction.commandName === "add") {
-    await add.execute(interaction);
+    case "add":
+      await add.execute(interaction);
+      break;
   }
 };
 
